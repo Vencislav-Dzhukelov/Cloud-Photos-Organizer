@@ -1,0 +1,18 @@
+<p>Форма за контакт</p>
+
+<p><a href="{% url 'organizer' %}">Back</a></p>
+
+<form method="POST" action="{% url 'contact' %}">
+  {% csrf_token %}
+  <div>
+    <label>Name:</label>
+    <input type="text" name="sender_name" />
+  </div>
+
+  <div>
+    <label>Message:</label>
+    <input type="text" name="message" />
+  </div>
+
+  <input type="submit" value="Send" />
+</form>
