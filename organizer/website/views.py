@@ -26,7 +26,7 @@ def register(request):
             return redirect("register")
 
         user = User.objects.create_user(username, email, password)
-        return redirect("index")
+        return redirect("login")
 
     else:
         return render(request, "register.html", locals())

@@ -1,23 +1,24 @@
 {% extends "layout.html" %}
 
 {% block main %}
-    <p>Форма за контакт</p>
-
-    <p><a href="{% url 'organizer' %}">Back</a></p>
-
-    <form method="POST" action="{% url 'contact' %}">
+<p>Форма за контакт</p>
+<div class="col-md-4 col-md-offset-4">
+    <form method="POST" action="{% url 'contact' %}" role="form">
+        
         {% csrf_token %}
-        <div>
+        
+        <div class="form-group">
           <label>Name:</label>
-          <input type="text" name="sender_name" />
+          <input type="text" name="sender_name" class="form-control"/>
         </div>
 
-        <div>
+        <div class="form-group">
           <label>Message:</label>
-          <input type="text" name="message" />
+          <input type="text" name="message" class="form-control"/>
         </div>
 
-        <input type="submit" value="Send" />
+        <input type="submit" value="Send" class="btn btn-default"/>
+    
     </form>
+</div>
 {% endblock main %}
-
