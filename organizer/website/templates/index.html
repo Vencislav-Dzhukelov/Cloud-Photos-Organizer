@@ -1,18 +1,22 @@
-<h1>Cloud Photo Organizer!</h1>
+{% extends "layout.html" %}
 
-<h2><a href="{% url 'register' %}">Register here</a></h2>
+{% block main %}
+    <h1>Cloud Photo Organizer!</h1>
 
-<form method="POST" action="{% url 'index' %}">
-  {% csrf_token %}
-  <div>
-    <label>Username:</label>
-    <input type="text" name="username" />
-  </div>
+    <h2><a href="{% url 'register' %}">Register here</a></h2>
 
-  <div>
-    <label>Password:</label>
-    <input type="password" name="password" />
-  </div>
+    <form method="POST" action="{% url 'index' %}">
+        {% csrf_token %}
+        <div>
+            <label>Username:</label>
+            <input type="text" name="username" autocomplete="off"/>
+        </div>
+        <div>
+            <label>Password:</label>
+            <input type="password" name="password" autocomplete="off"/>
+        </div>
+        <input type="submit" value="Login" />
+    </form>
+{% endblock main %}
 
-  <input type="submit" value="Login" />
-</form>
+

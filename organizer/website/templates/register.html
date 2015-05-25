@@ -1,21 +1,25 @@
-<h1>Register for organizer:</h1>
+{% extends "layout.html" %}
 
-<form method="POST" action="{% url 'register' %}">
-  {% csrf_token %}
-  <div>
-    <label>Username:</label>
-    <input type="text" name="username" />
-  </div>
+{% block main %}
+    <h1>Register for organizer:</h1>
 
-  <div>
-    <label>Email:</label>
-    <input type="email" name="email" />
-  </div>
+    <form method="POST" action="{% url 'register' %}">
+        {% csrf_token %}
+        <div>
+            <label>Username:</label>
+            <input type="text" name="username" autocomplete="off"/>
+        </div>
 
-  <div>
-    <label>Password:</label>
-    <input type="password" name="password" />
-  </div>
+        <div>
+            <label>Email:</label>
+            <input type="email" name="email" autocomplete="off"/>
+        </div>
 
-  <input type="submit" value="Register" />
-</form>
+        <div>
+            <label>Password:</label>
+            <input type="password" name="password" autocomplete="off"/>
+        </div>
+
+        <input type="submit" value="Register" />
+    </form>
+{% endblock main %}

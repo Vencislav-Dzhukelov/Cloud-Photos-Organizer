@@ -1,6 +1,10 @@
-<h1>You are: {{ user.username }}</h1>
+{% extends "layout.html" %}
 
-<p><a href="{% url 'logout' %}">Logout here</a></p>
-<p><a href="{% url 'contact' %}">Contacts</a></p>
+{% block main %}
+	<h1>You are: {{ user.username }}</h1>
 
-<p>Some Magic Is Happening Here:</p>
+	<p><a href="{% url 'logout' %}">Logout here</a></p>
+	<p><a href="{% url 'contact' %}">Contacts</a></p>
+
+	<p>Some Magic Is Happening Here:</p>
+{% endblock main %}
