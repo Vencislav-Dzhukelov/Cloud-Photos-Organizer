@@ -22,3 +22,14 @@ def send_reset_password(receiver, new_password):
     server.login(SENDER_EMAIL, SENDER_PASSWORD)
     server.sendmail(SENDER_EMAIL, [TO], message)
 
+
+def send_feedback(receiver, text, name, email):
+    TO = receiver
+    SUBJECT = "Contact form email from " + name
+    TEXT = text + "\n Send from " + email
+    message = 'Subject: %s\n\n%s' % (SUBJECT, TEXT)
+    server = smtplib.SMTP(SERVER, PORT)
+    server.ehlo()
+    server.starttls()
+    server.login(SENDER_EMAIL, SENDER_PASSWORD)
+    server.sendmail(SENDER_EMAIL, [TO], message)

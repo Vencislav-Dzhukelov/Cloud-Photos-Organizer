@@ -5,7 +5,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 #from django.core.mail import send_mail
 import re
-from website.send_new_password import generate_new_password, send_reset_password
+from website.send_new_password import generate_new_password, send_reset_password, send_feedback
+from website.sending_settings import SENDER_EMAIL
 
 # Create your views here.
 
@@ -114,4 +115,10 @@ def organizer(request):
 
 
 def contact(request):
+    if request.method == "POST":
+        name = request.POST.get("sender_name")
+        email = request.POST.get("email")
+        message = request.POST.get("message")
+        send_feedback(SENDER_EMAIL, message, name, email)
+
     return render(request, "contact.html", locals())
