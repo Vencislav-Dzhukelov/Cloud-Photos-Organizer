@@ -4,19 +4,4 @@
     <h1>Cloud Photo Organizer!</h1>
 
     <h2><a href="{% url 'register' %}">Register here</a></h2>
-
-    <form method="POST" action="{% url 'index' %}">
-        {% csrf_token %}
-        <div>
-            <label>Username:</label>
-            <input type="text" name="username" autocomplete="off"/>
-        </div>
-        <div>
-            <label>Password:</label>
-            <input type="password" name="password" autocomplete="off"/>
-        </div>
-        <input type="submit" value="Login" />
-    </form>
 {% endblock main %}
-
-

@@ -49,6 +49,13 @@ def index(request):
     if request.user.is_authenticated():
         return redirect("organizer")
 
+    return render(request, "index.html", locals())
+
+
+def user_login(request):
+    if request.user.is_authenticated():
+        return redirect("organizer")
+
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
@@ -58,14 +65,15 @@ def index(request):
             login(request, user)
             return redirect("organizer")
         else:
-            return redirect("index")
+            # TODO: Make some message for this
+            return redirect("register")
 
     else:
-        return render(request, "index.html", locals())
+        return render(request, "login.html", locals())
 
 
 # def contact(request):
- #   return render(request, "contact.html", locals())
+#   return render(request, "contact.html", locals())
 
 
 @login_required(login_url="index")
