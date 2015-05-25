@@ -60,7 +60,6 @@ def user_login(request):
         username = request.POST.get("username")
         password = request.POST.get("password")
         user = authenticate(username=username, password=password)
-
         if user is not None:
             login(request, user)
             return redirect("organizer")
@@ -72,11 +71,7 @@ def user_login(request):
         return render(request, "login.html", locals())
 
 
-# def contact(request):
-#   return render(request, "contact.html", locals())
-
-
-@login_required(login_url="index")
+@login_required(login_url="login")
 def organizer(request):
     return render(request, "organizer.html", locals())
 
