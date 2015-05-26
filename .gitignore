@@ -58,3 +58,6 @@ target/
 
 # SengingStuff:
 sending_settings.py
+
+# db
+.sqlite3
